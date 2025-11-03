@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ahorcado</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script type="text/javascript" src="ahorcado.js"></script>
+</head>
+<style>
+    /* Mantengo tu CSS original y añado estilos nuevos */
+    h1, h2, h3 {
+        cursor: default;
+    }
+    body {
+        background-color: rgb(181, 194, 235);
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .grid1 {
+        display: grid;
+        background-color: rgb(255, 180, 180);
+        gap: 15px;
+        padding: 2% 10%;
+    }
+    .grid2 {
+        display: grid;
+        gap: 15px;
+        padding: 2% 10%;
+    }
+    h1 {
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+        padding: 5px;
+    }
+    h2 {
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+        padding: 5px;
+        margin-left: 33%;
+        margin-right: 33%;
+    }
+    .form1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+    .letraPalabra {
+        display: flex;
+        width: 85%;
+        height: 100%;
+        margin: 10px;
+        border: solid 3px;
+        border-radius: 15px;
+        border-color: rgb(178, 195, 251);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        padding-left: 34%;
+        cursor: default;
+        background-color: white;
+    }
+    .form2 {
+        width: 33%;
+        margin-left: 33%;
+        margin-right: 33%;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 1fr 2fr;
+    }
+    .form3 {
+        width: 33%;
+        margin-left: 33%;
+        margin-right: 33%;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 3fr 1fr;
+    }
+    .letraEnviada {
+        display: flex;
+        width: 95%;
+        height: 90%;
+        margin: 10px;
+        border: solid 3px;
+        border-radius: 15px;
+        border-color: rgb(178, 195, 251);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        padding-left: 44%;
+        background-color: white;
+    }
+    .letraEnviada:focus,
+    .letraEnviada:active {
+        border-color: rgb(178, 195, 251);
+        background-color: white;
+        color: inherit;
+        box-shadow: none;
+        outline: none;
+    }
+    .letraPalabra:focus,
+    .letraPalabra:hover,
+    .letraPalabra:focus:active {
+        border-color: rgb(178, 195, 251);
+        background-color: white;
+        color: inherit;
+        box-shadow: none;
+        outline: none;
+        cursor: default;
+    }
+    .comprobar {
+        background-color: rgb(178, 195, 251);
+        width: 100%;
+        height: 90%;
+        margin: 10px;
+        border: solid 3px;
+        border-radius: 15px;
+        border-color: rgb(255, 255, 255);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .comenzar {
+        background-color: rgb(178, 195, 251);
+        width: 90%;
+        height: 90%;
+        margin: 10px;
+        border: solid 3px;
+        border-radius: 15px;
+        border-color: rgb(255, 255, 255);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .comprobar:active {
+        transform: scale(0.95);
+    }
+    .comenzar:active {
+        transform: scale(0.97);
+    }
+    h3 {
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+        padding: 5px;
+        margin-left: 33%;
+        margin-right: 33%;
+        margin-top: 1.7%;
+    }
+    label {
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+        padding: 5px;
+        margin-top: 2%;
+        width: 90%;
+        border: solid 3px;
+        border-radius: 15px;
+        border-color: rgb(255, 180, 180);
+    }
+    .separador {
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+        border-radius: 0%;
+        padding: 5px;
+    }
+    .inputInfo {
+        display: flex;
+        width: 70%;
+        border: solid 3px;
+        margin-top: 5%;
+        border-radius: 15px;
+        border-color: rgb(255, 180, 180);
+        background-color: white;
+        cursor: default;
+        padding-left: 30%;
+    }
+    .inputInfo:focus,
+    .inputInfo:hover,
+    .inputInfo:focus:active {
+        border-color: rgb(255, 180, 180);
+        background-color: white;
+        color: inherit;
+        box-shadow: none;
+        outline: none;
+        cursor: default;
+    }
+    .mensaje {
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+        padding: 10px;
+        margin: 10px auto;
+        width: 50%;
+        border: solid 3px rgb(178, 195, 251);
+    }
+    .letrasFalladas {
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(255, 0, 0);
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+        padding: 5px;
+        margin: 10px auto;
+        width: 50%;
+        border: solid 3px rgb(255, 180, 180);
+    }
+    .letra-acertada {
+        color: rgb(0, 0, 0);
+    }
+    .letra-fallada {
+        color: rgb(255, 51, 51); 
+    }
+</style>
+<body>
+    <div class="grid1">
+        <h1>Juego del ahorcado</h1>
+        <h2>Palabra a adivinar</h2>
+        <form class="form1" id="Palabra">
+            <input class="letraPalabra" readonly type="text" id="letra0">
+            <input class="letraPalabra" readonly type="text" id="letra1">
+            <input class="letraPalabra" readonly type="text" id="letra2">
+            <input class="letraPalabra" readonly type="text" id="letra3">
+            <input class="letraPalabra" readonly type="text" id="letra4">
+            <input class="letraPalabra" readonly type="text" id="letra5">
+            <input class="letraPalabra" readonly type="text" id="letra6">
+        </form>
+        <h3>Envía tu letra</h3>
+        <form class="form2" id="letraEscrita">
+            <input class="letraEnviada" type="text" id="letraEnviada" maxlength="1" oninput="validarInput(this)">
+            <button class="comprobar" type="button" onclick="comprobarLetra()">Comprobar</button>
+        </form>
+        <button class="comenzar" type="button" onclick="comenzar()">Comenzar</button>
+        <!-- Contenedor para mensajes -->
+        <div id="mensajeContainer"></div>
+        <!-- Contenedor para letras falladas -->
+        <div id="letrasFalladas" class="letrasFalladas" style="display: none;">Letras falladas: <span id="listaFalladas"></span></div>
+    </div>
+    <h1 class="separador"></h1>
+    <div class="grid2">
+        <form class="form3">
+            <label for="puntuacionAct">Puntuación actual:</label>
+            <input readonly class="inputInfo" type="number" id="puntuacionAct">
+            <label for="puntuacionUltima">Puntuación última jugada:</label>
+            <input readonly class="inputInfo" type="number" id="puntuacionUltima">
+            <label for="puntuacionMax">Puntuación máxima:</label>
+            <input readonly class="inputInfo" type="number" id="puntuacionMax">
+            <label for="numFallosActuales">Núm fallos actuales:</label>
+            <input readonly class="inputInfo" type="number" id="numFallosActuales">
+            <label for="numFallosPerm">Núm fallos permitidos:</label>
+            <input readonly class="inputInfo" type="number" id="numFallosPerm">
+            <label for="palabrasRest">Palabras restantes:</label>
+            <input readonly class="inputInfo" type="number" id="palabrasRest">
+        </form>
+    </div>
+</body>
+</html>
